@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<dataConfig>   
+<dataSource type="JdbcDataSource"   
+		  driver="com.mysql.jdbc.Driver"   
+		  url="jdbc:mysql://localhost:3306/tripsearch"   
+		  user="root"   
+		  password="root"/>   
+<document>   
+	<entity name="sight" query="SELECT * FROM sights" transformer="RegexTransformer">
+		 <field column="id" name="id"/>
+		 <field column="site_id" name="sight_id"/>
+		 <field column="name" name="sight_name"/>
+		 <field column="images" name="sight_images" splitBy="\^"/> 
+		 <field column="score" name="sight_score"/> 
+		 <field column="intro" name="sight_intro"/> 
+		 <field column="address" name="sight_address" splitBy="\^"/>
+		 <field column="comments" name="sight_comments" splitBy="\^"/>
+		 <field column="comment_num" name="sight_comment_num"/>
+		 <field column="near_hotels" name="sight_near_hotels" splitBy="\^"/>
+		 <field column="tickets" name="sight_tickets" splitBy="^"/>
+		 <field column="traffic" name="sight_traffic"/>
+		 <field column="coordinate" name="sight_coordinate"/> 
+		 <field column="types" name="sight_type" splitBy="\^"/> 
+		 <field column="place" name="sight_place" splitBy="\^"/> 
+		 <field column="pageurl" name="pageurl"/> 
+
+		 <!-- <entity name="feature" query="select sight_place_1 sight_place_2 sight_place_3 sight_place_4 sight_place_5 from sight where sight_id='${sight.sight_id}'">
+                <field name="sight_place" column="sight_place_1" />
+                <field name="sight_place" column="sight_place_2" />
+                <field name="sight_place" column="sight_place_3" />
+                <field name="sight_place" column="sight_place_4" />
+                <field name="sight_place" column="sight_place_5" />
+            </entity> -->
+	</entity>   
+</document>   
+
+</dataConfig>
